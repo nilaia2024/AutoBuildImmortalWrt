@@ -72,7 +72,8 @@ elif [ "$count" -gt 1 ]; then
    # 多网口设备 支持修改为别的ip地址
    uci set network.lan.ipaddr='10.168.1.111'
    uci set network.lan.netmask='255.255.255.0'
-   echo "set 192.168.100.1 at $(date)" >> $LOGFILE
+   uci set network.lan.gateway='10.168.1.1'
+   echo "set 10.168.1.111 at $(date)" >> $LOGFILE
    # 判断是否启用 PPPoE
    echo "print enable_pppoe value=== $enable_pppoe" >> $LOGFILE
    if [ "$enable_pppoe" = "yes" ]; then
